@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "752070176930",
+    "firebase_url": "https://flutter-261402.firebaseio.com",
+    "project_id": "youtubeflutter-261402",
+    "storage_bucket": "youtubeflutter-261402.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:752070176930:android:ba9fcee9ac0bb4ebba27fb",
+        "android_client_info": {
+          "package_name": "com.vimodev.youtube"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "752070176930-cd59bjfge63skn6iuml4fq35gl5c8ql9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApqTQ3KfEhBozXck7tk4UyiQj9cNoYd5I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "752070176930-cd59bjfge63skn6iuml4fq35gl5c8ql9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
