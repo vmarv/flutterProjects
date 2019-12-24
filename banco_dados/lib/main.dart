@@ -51,7 +51,15 @@ class _HomeState extends State<Home> {
 
     Database bd = await _recuperarBancoDados();
 
-    String sql = "SELECT * FROM usuarios WHERE idade >= 20 OR idade <= 50";
+    //String sql = "SELECT * FROM usuarios WHERE idade >= 20 OR idade <= 50";
+    //String sql = "SELECT * FROM usuarios WHERE idade BETWEEN 20 AND 40";
+    //String sql = "SELECT * FROM usuarios WHERE idade IN (20,50)";
+    //String sql = "SELECT * FROM usuarios WHERE nome = 'vinicius' ";
+    //String sql = "SELECT * FROM usuarios WHERE nome LIKE 'Ana%' ";
+    //String filtro = "ni";
+    //String sql = "SELECT * FROM usuarios WHERE nome LIKE '%" + filtro + "%' ";
+    //String sql = "SELECT * FROM usuarios WHERE 1 = 1 ORDER BY idade DESC LIMIT 3";
+    String sql = "SELECT * FROM usuarios";
     List usuarios = await bd.rawQuery(sql);
 
     for(var usuario in usuarios) {
@@ -65,6 +73,60 @@ class _HomeState extends State<Home> {
     //print("Usuarios: " + usuarios.toString());
   }
 
+  _recuperarUsuarioPeloId(int id) async {
+
+    Database bd = await _recuperarBancoDados();
+
+    List usuarios = await bd.query(
+      "usuarios",
+      columns: ["id", "nome", "idade"],
+      where: "id = ?",
+      whereArgs: [id]
+    );
+
+    for(var usuario in usuarios) {
+      print(""
+          "item id: " + usuario['id'].toString() +
+          " / nome: " + usuario['nome'] +
+          " / idade: " + usuario['idade'].toString()
+      );
+    }
+
+  }
+
+
+  _excluirUsuario(int id) async {
+
+    Database bd = await _recuperarBancoDados();
+
+    int retorno = await bd.delete(
+      "usuarios",
+      where: "id = ?",
+      whereArgs: [id]
+    );
+
+    print("Qtd removida: $retorno");
+  }
+
+  _atualizarUsuario(int id) async {
+
+    Database bd = await _recuperarBancoDados();
+
+    Map<String, dynamic> dadosUsuario = {
+      "nome" : "Julio",
+      "idade" : 22
+    };
+
+    int retorno = await bd.update(
+      "usuarios",
+      dadosUsuario,
+      where: "id = ?",
+      whereArgs: [id]
+    );
+
+    print("Qtd alterada: $retorno");
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -73,6 +135,9 @@ class _HomeState extends State<Home> {
 
     //_salvar();
     _listarUsuarios();
+    //_recuperarUsuarioPeloId(5);
+    //_excluirUsuario(8);
+    //_atualizarUsuario(7);
 
     return Container();
   }
