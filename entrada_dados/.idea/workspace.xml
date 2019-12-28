@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a421b27d-93f4-46ee-9611-5db5b2d11a36" name="Default Changelist" comment="" />
+    <list default="true" id="a421b27d-93f4-46ee-9611-5db5b2d11a36" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../atm_consultoria/android/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../atm_consultoria/android/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../atm_consultoria/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../atm_consultoria/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cara_ou_coroa/android/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../cara_ou_coroa/android/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cara_ou_coroa/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../cara_ou_coroa/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumo_servico_avancado/android/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../consumo_servico_avancado/android/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consumo_servico_avancado/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../consumo_servico_avancado/pubspec.lock" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
@@ -14,11 +24,13 @@
     <option name="width" value="1431" />
     <option name="height" value="1044" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -31,7 +43,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -69,7 +80,7 @@
     <frame x="-8" y="5" width="1431" height="1044" extended-state="0" />
     <layout>
       <window_info id="Captures" order="0" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.33479214" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.33989787" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
