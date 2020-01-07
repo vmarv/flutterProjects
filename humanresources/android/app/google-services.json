@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "626684075302",
+    "firebase_url": "https://human-resources-efb73.firebaseio.com",
+    "project_id": "human-resources-efb73",
+    "storage_bucket": "human-resources-efb73.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:626684075302:android:0a82503b9e2b9b0fea35e7",
+        "android_client_info": {
+          "package_name": "com.vimodev.humanresources"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "626684075302-a7v5crgcfrndb3h83aalnj6qsuqkch80.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBetBpJbVbD0QrHjgL9-w43PRhJvNACHzk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "626684075302-a7v5crgcfrndb3h83aalnj6qsuqkch80.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
