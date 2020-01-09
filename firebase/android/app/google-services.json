@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1071113207200",
+    "firebase_url": "https://fir-177e3.firebaseio.com",
+    "project_id": "fir-177e3",
+    "storage_bucket": "fir-177e3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1071113207200:android:2ffd781b3b35d93fc9f8c5",
+        "android_client_info": {
+          "package_name": "com.vimodev.firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1071113207200-ps8vgo1opgg94v6skpr5k84tprgohpgv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vimodev.firebase",
+            "certificate_hash": "6cb247062a9c8967859023f7c479001fb8eda104"
+          }
+        },
+        {
+          "client_id": "1071113207200-aq08vjnli2640qk7le76ftdg0nacjsj5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChqoka1-76iHzr6PN1hp6lNqmCjhFXWyI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1071113207200-aq08vjnli2640qk7le76ftdg0nacjsj5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
