@@ -27,6 +27,7 @@ dependencies:
   firebase_auth: ^0.15.3+1 # Autenticação
   firebase_storage: ^3.1.1 # Armazenamento de arquivos
   cloud_firestore: ^0.13.0+1 # banco de dados
+  image_picker: ^0.6.3+1 # Selecionar imagens
 
 dev_dependencies:
   flutter_test:
