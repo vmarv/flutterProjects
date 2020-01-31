@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:whatsapp/telas/AbaContatos.dart';
 import 'package:whatsapp/telas/AbaConversas.dart';
-
-
+import 'dart:io';
 import 'Login.dart';
 
 class Home extends StatefulWidget {
@@ -33,11 +32,10 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   Future _verificarUsuarioLogado() async {
 
     FirebaseAuth auth = FirebaseAuth.instance;
-    //auth.signOut();
 
     FirebaseUser usuarioLogado = await auth.currentUser();
 
-    if( usuarioLogado != null ){
+    if( usuarioLogado == null ){
       Navigator.pushReplacementNamed(context, "/login");
     }
 
@@ -48,7 +46,6 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     super.initState();
     _verificarUsuarioLogado();
     _recuperarDadosUsuario();
-
     _tabController = TabController(
         length: 2,
         vsync: this
@@ -85,6 +82,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     return Scaffold(
       appBar: AppBar(
         title: Text("WhatsApp"),
+        elevation: Platform.isIOS ? 0 : 4,
         bottom: TabBar(
           indicatorWeight: 4,
           labelStyle: TextStyle(
@@ -92,7 +90,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
               fontWeight: FontWeight.bold
           ),
           controller: _tabController,
-          indicatorColor: Colors.white,
+          indicatorColor: Platform.isIOS ? Colors.grey[400] : Colors.white,
           tabs: <Widget>[
             Tab(text: "Conversas",),
             Tab(text: "Contatos",)

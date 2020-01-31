@@ -12,9 +12,9 @@ class Cadastro extends StatefulWidget {
 class _CadastroState extends State<Cadastro> {
 
   //Controladores
-  TextEditingController _controllerNome = TextEditingController();
-  TextEditingController _controllerEmail = TextEditingController();
-  TextEditingController _controllerSenha = TextEditingController();
+  TextEditingController _controllerNome = TextEditingController(text: "Jamilton Damasceno");
+  TextEditingController _controllerEmail = TextEditingController(text: "jamilton@gmail.com");
+  TextEditingController _controllerSenha = TextEditingController(text: "1234567");
   String _mensagemErro = "";
 
   _validarCampos(){
@@ -28,7 +28,7 @@ class _CadastroState extends State<Cadastro> {
 
       if( email.isNotEmpty && email.contains("@") ){
 
-        if( senha.isNotEmpty && senha.length >= 6 ){
+        if( senha.isNotEmpty && senha.length > 6 ){
 
           setState(() {
             _mensagemErro = "";
@@ -78,7 +78,9 @@ class _CadastroState extends State<Cadastro> {
           .document( firebaseUser.user.uid )
           .setData( usuario.toMap() );
 
-      Navigator.pushNamedAndRemoveUntil(context, "/home", (_)=>false);
+      Navigator.pushNamedAndRemoveUntil(
+          context, "/home", (_)=>false
+      );
 
     }).catchError((error){
       print("erro app: " + error.toString() );

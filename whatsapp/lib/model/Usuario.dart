@@ -1,6 +1,7 @@
 
 class Usuario {
 
+  String _idUsuario;
   String _nome;
   String _email;
   String _urlImagem;
@@ -8,15 +9,23 @@ class Usuario {
 
   Usuario();
 
-  //metodo que retorna um map pra poder salvar os dados do usuario no "setdata" do cadastro.dart
   Map<String, dynamic> toMap(){
+
     Map<String, dynamic> map = {
       "nome" : this.nome,
       "email" : this.email
     };
+
     return map;
+
   }
 
+
+  String get idUsuario => _idUsuario;
+
+  set idUsuario(String value) {
+    _idUsuario = value;
+  }
 
   String get senha => _senha;
 

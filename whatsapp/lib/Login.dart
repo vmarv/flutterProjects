@@ -12,9 +12,8 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
 
-  TextEditingController _controllerEmail = TextEditingController();
-  //TextEditingController _controllerEmail = TextEditingController(text: "jamilton@gmail.com");
-  TextEditingController _controllerSenha = TextEditingController();
+  TextEditingController _controllerEmail = TextEditingController(text: "jamilton@gmail.com");
+  TextEditingController _controllerSenha = TextEditingController(text: "1234567");
   String _mensagemErro = "";
 
   _validarCampos(){

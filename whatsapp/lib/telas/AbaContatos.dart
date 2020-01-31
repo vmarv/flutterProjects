@@ -18,23 +18,23 @@ class _AbaContatosState extends State<AbaContatos> {
     Firestore db = Firestore.instance;
 
     QuerySnapshot querySnapshot =
-        await db.collection("usuarios").getDocuments();
+    await db.collection("usuarios").getDocuments();
 
     List<Usuario> listaUsuarios = List();
     for (DocumentSnapshot item in querySnapshot.documents) {
 
       var dados = item.data;
-      if(dados["email"] == _emailUsuarioLogado) {
-        continue;
-      }// esse continue ele n executa essa vez e vai p o proximo item, assim ocultando o email do teste
+      if( dados["email"] == _emailUsuarioLogado ) continue;
 
       Usuario usuario = Usuario();
+      usuario.idUsuario = item.documentID;
       usuario.email = dados["email"];
       usuario.nome = dados["nome"];
       usuario.urlImagem = dados["urlImagem"];
 
       listaUsuarios.add(usuario);
     }
+
     return listaUsuarios;
   }
 
@@ -76,12 +76,17 @@ class _AbaContatosState extends State<AbaContatos> {
             return ListView.builder(
                 itemCount: snapshot.data.length,
                 itemBuilder: (_, indice) {
+
                   List<Usuario> listaItens = snapshot.data;
                   Usuario usuario = listaItens[indice];
 
                   return ListTile(
                     onTap: (){
-                      Navigator.pushNamed(context, "/mensagens", arguments: usuario);
+                      Navigator.pushNamed(
+                          context,
+                          "/mensagens",
+                          arguments: usuario
+                      );
                     },
                     contentPadding: EdgeInsets.fromLTRB(16, 8, 16, 8),
                     leading: CircleAvatar(
@@ -93,7 +98,7 @@ class _AbaContatosState extends State<AbaContatos> {
                     title: Text(
                       usuario.nome,
                       style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                      TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                     ),
                   );
                 });
