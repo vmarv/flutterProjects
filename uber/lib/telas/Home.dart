@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:uber/model/Usuario.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -9,6 +12,90 @@ class _HomeState extends State<Home> {
 
   TextEditingController _controllerEmail = TextEditingController();
   TextEditingController _controllerSenha = TextEditingController();
+  String _mensagemErro = "";
+  bool _carregando = false;
+
+  _validarCampos() {
+    //recuperar dados dos campos
+    String email = _controllerEmail.text;
+    String senha = _controllerSenha.text;
+
+    //validar campos
+    if(email.isNotEmpty && email.contains("@")) {
+      if(senha.isNotEmpty && senha.length >= 6){
+        Usuario usuario = Usuario();
+
+        usuario.email = email;
+        usuario.senha = senha;
+
+        _logarUsuario(usuario);
+
+      } else {
+        _mensagemErro = "Preencha a senha corretamente";
+      }
+    }else {
+      _mensagemErro = "Preencha o email corretamente";
+    }
+  } // fim validar campos
+
+  _logarUsuario(Usuario usuario) {
+
+    setState(() {
+      _carregando = true;
+    });
+
+    FirebaseAuth auth = FirebaseAuth.instance;
+
+    auth.signInWithEmailAndPassword(
+      email: usuario.email,
+      password: usuario.senha
+    ).then((firebaseUser) {
+      _redirecionaPainelPorTipoUsuario( firebaseUser.user.uid );
+    }).catchError((error) {
+      _mensagemErro = "Erro ao autenticar usuário, verifique email e senha.";
+    });
+
+  }
+
+  _redirecionaPainelPorTipoUsuario(String idUsuario) async {
+    Firestore db = Firestore.instance;
+
+    DocumentSnapshot snapshot = await db.collection("usuarios").document(idUsuario).get();
+
+    Map<String, dynamic> dados = snapshot.data;
+    String tipoUsuario = dados["tipoUsuario"];
+
+    setState(() {
+      _carregando = false;
+    });
+
+    switch(tipoUsuario) {
+      case "motorista":
+        Navigator.pushReplacementNamed(context, "/painel-motorista");
+        break;
+
+      case "passageiro":
+        Navigator.pushReplacementNamed(context, "/painel-passageiro");
+        break;
+    }
+  }
+
+  _verificaUsuarioLogado() async {
+    FirebaseAuth auth = FirebaseAuth.instance;
+
+    FirebaseUser usuarioLogado = await auth.currentUser();
+    if(usuarioLogado != null) {
+      String idUsuario = usuarioLogado.uid;
+      _redirecionaPainelPorTipoUsuario(idUsuario);
+    }
+  }
+
+
+  @override
+  void initState() {
+    super.initState();
+    _verificaUsuarioLogado();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +156,9 @@ class _HomeState extends State<Home> {
                     ),
                     color: Color(0xff1ebbd8),
                     padding: EdgeInsets.fromLTRB(32, 16, 32, 16),
-                    onPressed: (){},
+                    onPressed: (){
+                      _validarCampos();
+                    },
                   ),
                 ),
                 Center(
@@ -78,14 +167,18 @@ class _HomeState extends State<Home> {
                       "Não tem conta? cadastre-se",
                       style: TextStyle(color: Colors.white),
                     ),
-                    onTap: (){},
+                    onTap: (){
+                      Navigator.pushNamed(context, "/cadastro");
+                    },
                   ),
                 ),
+                _carregando ? Center(child: CircularProgressIndicator(backgroundColor: Colors.white,),)
+                            : Container(),
                 Padding(
                   padding: EdgeInsets.only(top: 16),
                   child: Center(
                     child: Text(
-                      "Erro",
+                      _mensagemErro,
                       style: TextStyle(color: Colors.red, fontSize: 20)
                     ),
                   ),
