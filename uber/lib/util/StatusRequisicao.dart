@@ -5,5 +5,6 @@ class StatusRequisicao {
   static const VIAGEM = "viagem";
   static const FINALIZADA = "finalizada";
   static const CANCELADA = "cancelada";
+  static const CONFIRMADA = "confirmada";
 
 }

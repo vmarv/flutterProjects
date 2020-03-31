@@ -14,11 +14,12 @@ class Usuario {
 
   Map<String, dynamic> toMap() {
     Map<String, dynamic> map = {
-      "nome": this.nome,
-      "email": this.email,
-      "tipoUsuario": this.tipoUsuario,
-      "latitude": this.latitude,
-      "longitude": this.longitude,
+      "idUsuario" : this.idUsuario,
+      "nome" : this.nome,
+      "email" : this.email,
+      "tipoUsuario" : this.tipoUsuario,
+      "latitude" : this.latitude,
+      "longitude" : this.longitude,
     };
     return map;
   }
