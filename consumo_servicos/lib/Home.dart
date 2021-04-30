@@ -15,20 +15,27 @@ class _HomeState extends State<Home> {
 
   _recuperarCep() async {
 
-    String cepDigitado = _controllerCep.text;
-    String url = "https://viacep.com.br/ws/${cepDigitado}/json/";
+    //String cepDigitado = _controllerCep.text;
+    //String url = "https://viacep.com.br/ws/${cepDigitado}/json/";
+    String url = "https://vimodev.000webhostapp.com/api/v1/estoque/mostrar";
+
     http.Response response;    
     
     response = await http.get(url);
     Map<String, dynamic> retorno = json.decode(response.body);
 
-    String logradouro = retorno["logradouro"];
-    String complemento = retorno["complemento"];
-    String bairro = retorno["bairro"];
-    String localidade = retorno["localidade"];
+    //String produto = retorno["dados"][1]["produto"];
+    //String logradouro = retorno["logradouro"];
+    //String complemento = retorno["complemento"];
+    //String bairro = retorno["bairro"];
+    //String localidade = retorno["localidade"];
+
+    print(retorno);
+    //print(produto);
 
     setState(() {
-      _resultado = "${logradouro}, ${complemento}, ${bairro}, ${localidade}";
+
+      //_resultado = "${logradouro}, ${complemento}, ${bairro}, ${localidade}";
     });
 
     //print("reposta: " + response.body);
